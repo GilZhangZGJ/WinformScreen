@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.picEmp = new System.Windows.Forms.PictureBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.picEmp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,17 +44,27 @@
             // 
             // picEmp
             // 
-            this.picEmp.Location = new System.Drawing.Point(311, 85);
+            this.picEmp.Location = new System.Drawing.Point(37, 40);
             this.picEmp.Name = "picEmp";
             this.picEmp.Size = new System.Drawing.Size(218, 247);
             this.picEmp.TabIndex = 1;
             this.picEmp.TabStop = false;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(800, 250);
+            this.webBrowser1.TabIndex = 2;
             // 
             // NextForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.picEmp);
             this.Controls.Add(this.label1);
             this.Name = "NextForm";
@@ -68,5 +79,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picEmp;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

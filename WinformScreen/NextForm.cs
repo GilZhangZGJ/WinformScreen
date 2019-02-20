@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vereyon.Windows;
 
 namespace WinformScreen
 {
     public partial class NextForm : Form
     {
-       static Timer timer = new Timer();
+        public ScriptingBridge Bridge { get; private set; }
+        static Timer timer = new Timer();
         //默认显示第一个人的照片
         private int p1 = 0;
         private bool bError;
@@ -26,8 +28,10 @@ namespace WinformScreen
             timer.Interval=110;
             timer.Tick += Timer_Tick;
             InitData();
+            Bridge = new ScriptingBridge(webBrowser1, true);
+           // Bridge.Initialized += new EventHandler(Bridge_Initialized);
         }
-
+       
         private void InitData()
         {
             LoadFromFile();
@@ -106,7 +110,8 @@ namespace WinformScreen
             }
         }
         private void NextForm_Load(object sender, EventArgs e)
-        {
+        { 
+           //webBrowser1.Navigate(Application.StartupPath + @"\HTMLPageDemo.html");
             try
             {
                 //设置窗体无边框
@@ -124,6 +129,9 @@ namespace WinformScreen
                     //设置宽高
                     this.Width = childerScreen.Bounds.Width;
                     this.Height = childerScreen.Bounds.Height;
+                    webBrowser1.Width = childerScreen.Bounds.Width;
+                    webBrowser1.Height = childerScreen.Bounds.Height;
+                    this.webBrowser1.Location= childerScreen.WorkingArea.Location;
                     this.picEmp.Width = childerScreen.Bounds.Width;
                     this.picEmp.Height = childerScreen.Bounds.Width;
                     this.picEmp.Top = 0;
@@ -140,7 +148,8 @@ namespace WinformScreen
             {
                 //错误日志处理
             }
-
+            Uri uri = new Uri(String.Format("file:///{0}/HTMLPageDemo.html", Directory.GetCurrentDirectory()));
+            webBrowser1.Url = uri;
         }
     }
 }
