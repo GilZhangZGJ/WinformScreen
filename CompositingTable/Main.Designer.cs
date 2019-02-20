@@ -30,6 +30,7 @@
         {
             this.Btn = new System.Windows.Forms.Button();
             this.pictureBoxRet = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +52,26 @@
             this.pictureBoxRet.TabIndex = 1;
             this.pictureBoxRet.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(184, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(763, 21);
+            this.textBox1.TabIndex = 2;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 574);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBoxRet);
             this.Controls.Add(this.Btn);
             this.Name = "Main";
             this.Text = "Main";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +79,7 @@
 
         private System.Windows.Forms.Button Btn;
         private System.Windows.Forms.PictureBox pictureBoxRet;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
