@@ -59,10 +59,10 @@ namespace CompositingTable
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
             sf.LineAlignment = StringAlignment.Center;
-            graphics.DrawString("测试数据", font, b, rectangle, sf);
-            graphics.DrawString("测试数据", font, b, rectangle1, sf);
-            graphics.DrawString("测试数据", font, b, rectangle2, sf);
-            graphics.DrawString("测试数据", font, b, rectangle3, sf);
+            graphics.DrawString("Gil Zhang", font, b, rectangle, sf);
+            graphics.DrawString("Gil Zhang", font, b, rectangle1, sf);
+            graphics.DrawString("Gil Zhang", font, b, rectangle2, sf);
+            graphics.DrawString("Gil Zhang", font, b, rectangle3, sf);
             //graphics.DrawString("测试数据", font, b, rectangle, sf);
             pictureBoxRet.Image = image;
         }
