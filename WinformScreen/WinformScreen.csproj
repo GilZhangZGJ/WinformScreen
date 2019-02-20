@@ -95,11 +95,5 @@
   <ItemGroup>
     <Content Include="HTMLPageDemo.html" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Windows.WebBrowser\Windows.WebBrowser.csproj">
-      <Project>{87632ced-0f69-4669-b388-0c07f5c1b104}</Project>
-      <Name>Windows.WebBrowser</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

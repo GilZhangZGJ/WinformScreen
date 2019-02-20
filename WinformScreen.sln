@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformScreen", "WinformScr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositingTable", "CompositingTable\CompositingTable.csproj", "{96DB506B-2007-420B-910E-9EAC649D121B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.WebBrowser", "Windows.WebBrowser\Windows.WebBrowser.csproj", "{87632CED-0F69-4669-B388-0C07F5C1B104}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{96DB506B-2007-420B-910E-9EAC649D121B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96DB506B-2007-420B-910E-9EAC649D121B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96DB506B-2007-420B-910E-9EAC649D121B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87632CED-0F69-4669-B388-0C07F5C1B104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87632CED-0F69-4669-B388-0C07F5C1B104}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87632CED-0F69-4669-B388-0C07F5C1B104}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87632CED-0F69-4669-B388-0C07F5C1B104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

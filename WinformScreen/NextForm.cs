@@ -8,13 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Vereyon.Windows;
 
 namespace WinformScreen
 {
     public partial class NextForm : Form
     {
-        public ScriptingBridge Bridge { get; private set; }
         static Timer timer = new Timer();
         //默认显示第一个人的照片
         private int p1 = 0;
@@ -28,8 +26,6 @@ namespace WinformScreen
             timer.Interval=110;
             timer.Tick += Timer_Tick;
             InitData();
-            Bridge = new ScriptingBridge(webBrowser1, true);
-           // Bridge.Initialized += new EventHandler(Bridge_Initialized);
         }
        
         private void InitData()
