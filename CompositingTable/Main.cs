@@ -25,7 +25,7 @@ namespace CompositingTable
         {                            
            
             Graphics graphics = Graphics.FromImage(image);
-            Pen pen = new Pen(Color.Blue,4);
+            Pen pen = new Pen(Color.Blue,2);
             //横线粗加外边框
             graphics.DrawRectangle(pen,2,2,800,500);
             graphics.DrawLine(pen, 0,38,800,38);
@@ -168,7 +168,12 @@ namespace CompositingTable
                 graphics.DrawString(vs[14], font, diyDataB, diyData14, sf);
                 graphics.DrawString(vs[15], font, diyDataB, diyData15, sf);
             }
-           _printWidth = (double)80 / 25.40000;
+            graphics.Flush();
+            pen.Dispose();
+            pen2.Dispose();
+            font.Dispose();
+            b.Dispose();
+            _printWidth = (double)80 / 25.40000;
             _printHeight = (double)50 / 25.40000;
 
             //graphics.DrawString("测试数据", font, b, rectangle, sf);
@@ -176,7 +181,7 @@ namespace CompositingTable
             PrintController printController = new StandardPrintController();//禁止"打印中"弹窗
             printDocument.PrintController = printController;
             printDocument.PrintPage += PrintDocument_PrintPage;
-            printDocument.Print();
+            //printDocument.Print();
             pictureBoxRet.Image = image;
         }
 
