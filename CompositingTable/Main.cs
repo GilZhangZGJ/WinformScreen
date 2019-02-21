@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ namespace CompositingTable
 {
     public partial class Main : Form
     {
+        Bitmap image = new Bitmap(804, 504);
+        double _printWidth;
+        double _printHeight;
         public Main()
         {
             InitializeComponent();
@@ -19,7 +23,7 @@ namespace CompositingTable
 
         private void Btn_Click(object sender, EventArgs e)
         {                            
-            Bitmap image = new Bitmap(804,504);
+           
             Graphics graphics = Graphics.FromImage(image);
             Pen pen = new Pen(Color.Blue,4);
             //横线粗加外边框
@@ -48,7 +52,7 @@ namespace CompositingTable
             graphics.DrawLine(pen2, 603, 304, 603, 380);
             graphics.DrawLine(pen2, 603, 418, 603, 502);
             //画字
-            Font font = new Font("宋体",16);
+            Font font = new Font("微软细雅黑",16,FontStyle.Regular);
             Brush b = new SolidBrush(Color.Black);
             RectangleF rectangle = new RectangleF(0,2,800,38);
 
@@ -164,9 +168,34 @@ namespace CompositingTable
                 graphics.DrawString(vs[14], font, diyDataB, diyData14, sf);
                 graphics.DrawString(vs[15], font, diyDataB, diyData15, sf);
             }
-            
+           _printWidth = (double)80 / 25.40000;
+            _printHeight = (double)50 / 25.40000;
+
             //graphics.DrawString("测试数据", font, b, rectangle, sf);
+            PrintDocument printDocument = new PrintDocument();
+            PrintController printController = new StandardPrintController();//禁止"打印中"弹窗
+            printDocument.PrintController = printController;
+            printDocument.PrintPage += PrintDocument_PrintPage;
+            printDocument.Print();
             pictureBoxRet.Image = image;
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                //e.Graphics.DrawImage(bmp,
+                //    0, 0, e.Graphics.VisibleClipBounds.Width, e.Graphics.VisibleClipBounds.Width / bmp.Width * bmp.Height);
+                e.Graphics.DrawImage(image, 0, 0, (int)(_printWidth * 100), (int)(_printHeight * 100));
+                //e.Graphics.DrawImage(bmp,
+                //e.Graphics.VisibleClipBounds);
+                e.HasMorePages = false;
+            }
+            catch (System.Exception ex)
+            {
+               // logger.Error("print page handler take error.", ex);
+                //Log...
+            }
         }
     }
 }
