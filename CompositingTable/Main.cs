@@ -27,7 +27,7 @@ namespace CompositingTable
             Graphics graphics = Graphics.FromImage(image);
             Pen pen = new Pen(Color.Blue,2);
             //横线
-            graphics.DrawLine(pen, 0, 0, 920, 0);
+            graphics.DrawLine(pen, 0, 1, 920, 1);
             graphics.DrawLine(pen, 0, 48, 920, 48);
             graphics.DrawLine(pen, 0, 96, 920, 96);
             graphics.DrawLine(pen, 0, 144, 920, 144);
@@ -40,7 +40,7 @@ namespace CompositingTable
             graphics.DrawLine(pen, 0, 456, 920, 456);
             graphics.DrawLine(pen, 0, 504, 920, 504);
             graphics.DrawLine(pen, 0, 552, 920, 552);
-            graphics.DrawLine(pen, 0, 600, 920, 600);   
+            graphics.DrawLine(pen, 0, 599, 920, 599);   
             //竖线
             graphics.DrawLine(pen, 0, 0, 0, 144);
             graphics.DrawLine(pen, 0, 168, 0, 600);
@@ -54,20 +54,19 @@ namespace CompositingTable
             graphics.DrawLine(pen, 920, 168, 920, 600);
             Pen pen2 = new Pen(Color.Blue, 2);
            
-            //画字
+            //粗体字
             Font fontBold = new Font("微软雅黑",17,FontStyle.Bold);
             Font fontR = new Font("微软雅黑", 16, FontStyle.Regular);
             Brush b = new SolidBrush(Color.Black);
             
 
-            //横行大标题
+            //标题位置
             RectangleF rectangle4 = new RectangleF(0, 312, 210, 48);
             RectangleF rectangle5 = new RectangleF(410, 168, 210, 48);
             RectangleF rectangle6 = new RectangleF(0, 456, 210, 48);
             RectangleF rectangle7 = new RectangleF(402, 266, 402, 38);
             RectangleF rectangle8 = new RectangleF(0, 380, 402, 38);
             RectangleF rectangle9 = new RectangleF(402, 380, 402, 38);
-            //左边上三行矩形
             RectangleF rectangle1 = new RectangleF(0, 48, 210, 48);
             RectangleF rectangle2 = new RectangleF(0, 96, 210, 48);
             RectangleF rectangle3 = new RectangleF(410, 48, 210, 48);
@@ -78,9 +77,7 @@ namespace CompositingTable
             RectangleF mar3 = new RectangleF(210, 312, 210, 48);
             RectangleF mar4 = new RectangleF(210, 456, 210, 48);
             RectangleF mar5 = new RectangleF(685, 456, 210, 48);
-            RectangleF awarding = new RectangleF(410, 456, 300, 48);
-            
-            //小标题
+            RectangleF awarding = new RectangleF(410, 456, 300, 48);          
             RectangleF rectangle10 = new RectangleF(0, 216, 210, 48);
             RectangleF rectangle11= new RectangleF(410, 216, 210, 48);
             RectangleF rectangle12= new RectangleF(0, 264, 210, 48);
@@ -103,7 +100,6 @@ namespace CompositingTable
             RectangleF diyData1 = new RectangleF(210, 48, 200, 48);
             RectangleF diyData2 = new RectangleF(685, 48, 235, 48);
             RectangleF diyData3 = new RectangleF(210, 96, 200, 48);
-            //小标题
             RectangleF diyData4 = new RectangleF(685, 96, 235, 48);
             RectangleF diyData5 = new RectangleF(210, 216, 200, 48);
             RectangleF diyData6 = new RectangleF(685, 216, 235, 48);
@@ -124,10 +120,7 @@ namespace CompositingTable
            
            
             
-            //graphics.DrawString("Critical Thinking(Reading)", font, b, rectangle7, sf);
-            //graphics.DrawString("Workshop", font, b, rectangle8, sf);
-            //graphics.DrawString("Critical Thinking(Presentation)", font, b, rectangle9, sf);
-            //需要匹配的栏位数据
+            //固定粗体栏位
             graphics.DrawString("Division", fontBold, b, rectangle1, sf);
             graphics.DrawString("Team ID", fontBold, b, rectangle2, sf);
             graphics.DrawString("Student ID", fontBold, b, rectangle3, sf);
@@ -145,7 +138,7 @@ namespace CompositingTable
 
 
 
-
+            //固定细体
             graphics.DrawString("Entry Time", fontR, b, rectangle10, sf);
             graphics.DrawString("Entry Time", fontR, b, rectangle11, sf);
             graphics.DrawString("Seat", fontR, b, rectangle12, sf);
@@ -213,15 +206,15 @@ namespace CompositingTable
             fontR.Dispose();
             fontBold.Dispose();
             b.Dispose();
-            _printWidth = (double)80 / 25.40000;
-            _printHeight = (double)50 / 25.40000;
+            _printWidth = (double)92 / 25.40000;
+            _printHeight = (double)59 / 25.40000;
 
             //graphics.DrawString("测试数据", font, b, rectangle, sf);
             PrintDocument printDocument = new PrintDocument();
             PrintController printController = new StandardPrintController();//禁止"打印中"弹窗
             printDocument.PrintController = printController;
             printDocument.PrintPage += PrintDocument_PrintPage;
-            //printDocument.Print();
+            printDocument.Print();
             pictureBoxRet.Image = image;
         }
 
